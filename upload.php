@@ -13,6 +13,8 @@
 
     <?php
 
+    define("pastaUpload", "Arquivos/");
+
     // Verifica se não houve erro no upload do arquivo
     if ($_FILES["arquivo"]["error"] === 0) {
         set_time_limit(0); // Impede que o script seja interrompido por tempo de execução
@@ -28,7 +30,7 @@
         } else {
 
             // move_uploaded_file retorna true se o arquivo for movido com sucesso
-            if (move_uploaded_file($file['tmp_name'], './' . $file['name'])) {
+            if (move_uploaded_file($file['tmp_name'], './'. pastaUpload . $file['name'])) {
 
                 echo '<div class="alert alert-success" role="alert">✅ Upload feito com sucesso!</div>';
 
