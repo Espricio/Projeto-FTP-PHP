@@ -10,6 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
+<?php
+    define("pastaUpload", "Arquivos/");
+?>
+
 <body class="bg-light">
 
     <div class="container py-5">
@@ -33,6 +37,25 @@
                 </button>
             </div>
         </form>
+    </div>
+
+    <!-- Lista de Arquivos -->
+    <div class="container py-5">
+        <h2 class="mb-4 text">Arquivos:</h2>
+
+        <ul class="border p-4 bg-white rounded shadow-sm list-group">
+            <?php
+            
+            $arquivos = scandir(pastaUpload);
+
+            foreach($arquivos as $arquivo){
+                if ($arquivo !== '.' && $arquivo !== '..') {
+                    echo '<li class="list-group-item">'.$arquivo.'</li>';
+                }
+            }
+
+            ?>
+        </ul>
     </div>
 </body>
 

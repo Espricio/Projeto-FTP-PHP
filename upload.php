@@ -33,6 +33,7 @@
             if (move_uploaded_file($file['tmp_name'], './'. pastaUpload . $file['name'])) {
 
                 echo '<div class="alert alert-success" role="alert">✅ Upload feito com sucesso!</div>';
+                header("Location: http://localhost/Projeto-FTP-PHP/");
 
             } else {
 
